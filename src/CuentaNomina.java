@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 public class CuentaNomina extends Cuenta{
 
     private int mesesSinSalario  = 0;
@@ -21,12 +24,27 @@ public class CuentaNomina extends Cuenta{
         }else {
 
             mesesSinSalario++;
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Lleva "+ mesesSinSalario + " meses sin recibir salario.",
+                    "Atención",
+                    JOptionPane.WARNING_MESSAGE
+            );
+
 
         }
 
         if (mesesSinSalario >= 3){
 
+            JOptionPane.showMessageDialog(
+                    null,
+                    "La cuenta nómina se ha convertido en corriente por falta de sueldo.",
+                    "Aviso",
+                    JOptionPane.WARNING_MESSAGE
+            );
             return new CuentaCorriente(this.getNumeroCuenta(), this.getTitular(), this.getSaldoActual(), this.getFechaApertura());
+
+
         }
 
         return this;
